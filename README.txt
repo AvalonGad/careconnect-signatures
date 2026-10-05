@@ -1,18 +1,27 @@
-CARECONNECT PERSONAL SIGNATURE PORTAL
+CARECONNECT SELF-SERVICE EMAIL SIGNATURE GENERATOR
 
-This is a lightweight static portal. Each employee gets a personal URL:
-https://YOUR-DOMAIN/signature.html?person=brian-piper
+Upload these files to the root of your GitHub Pages repository:
 
-The employee opens the link, clicks Copy signature, and pastes into Outlook, Gmail, Apple Mail or another email client.
+index.html
+assets/careconnect-logo.png
 
-SETUP
-1. Upload the whole folder to an HTTPS static web host.
-2. Edit employees.js: brand.website, brand.ccsWebsite, brand.newsletter, and employee records.
-3. Test signature.html?person=brian-piper.
-4. Send each employee their personal URL.
+This version does NOT use employees.js.
 
-IMPORTANT
-- Replace all placeholder website URLs before rollout.
-- Keep the CareConnect logo hosted over HTTPS so it loads in email.
-- The Brian Piper record is based on the supplied screenshot.
-- For fully enforced company-wide signatures, a central service such as Exclaimer/CodeTwo is preferable.
+Employees enter their own:
+- Name
+- Job title
+- Company
+- Address
+- Email
+- Phone
+- LinkedIn
+
+The signature layout and brand links remain fixed.
+
+Fixed clickable links:
+- CCS: https://ccsint.com/
+- CareConnect: https://careconnect.world/
+
+The employee data is generated only in the browser and is not saved to GitHub or any database.
+
+After committing, GitHub Pages will automatically redeploy.
