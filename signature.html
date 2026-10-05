@@ -1,4 +1,107 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CareConnect Email Signature</title><style>
-:root{--navy:#123f73;--orange:#f58220;--teal:#12a8ba;--muted:#74849a;--line:#dbe3ec}*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f7f9fc,#fff 55%,#f4f8fb);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--navy)}.page{min-height:100vh;padding:42px 20px}.wrap{max-width:1050px;margin:auto}.top{display:flex;align-items:center;margin-bottom:28px}.brand{display:flex;align-items:center;gap:14px}.brand img{width:180px;height:auto}.badge{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#7d8da1}.card{background:#fff;border:1px solid #e1e7ee;border-radius:22px;box-shadow:0 18px 50px rgba(18,63,115,.09);overflow:hidden}.hero{padding:30px 34px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:30px;align-items:flex-end}h1{font-size:30px;line-height:1.15;margin:0 0 7px}.sub{color:var(--muted);font-size:15px}.person{text-align:right;color:#52657d;font-size:15px}.person strong{display:block;color:var(--navy);font-size:19px}.body{padding:34px}.preview{border:1px solid var(--line);border-radius:16px;background:white;padding:28px;overflow:auto}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}button{border:0;border-radius:10px;padding:13px 20px;font-size:14px;font-weight:700;cursor:pointer}.primary{background:var(--navy);color:white}.secondary{background:#edf3f9;color:var(--navy)}.status{color:#117a58;font-size:13px;margin-top:10px;min-height:18px}.steps{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{background:#f7f9fc;border-radius:14px;padding:17px}.step b{display:block;margin-bottom:5px}.step span{font-size:13px;color:#66798f;line-height:1.45}.footer{margin-top:22px;color:#91a0b1;font-size:12px;text-align:center}@media(max-width:720px){.hero{display:block}.person{text-align:left;margin-top:18px}.steps{grid-template-columns:1fr}.body{padding:20px}.hero{padding:24px}}
-</style><script src="employees.js"></script></head><body><div class="page"><div class="wrap"><div class="top"><div class="brand"><img src="assets/careconnect-logo.png" alt="CareConnect"><span class="badge">Corporate signature portal</span></div></div><div class="card"><div class="hero"><div><h1>Your CareConnect email signature</h1><div class="sub">Copy once. Paste into Outlook, Gmail, Apple Mail or your preferred email client.</div></div><div class="person" id="personInfo"></div></div><div class="body"><div class="preview" id="preview"></div><div class="actions"><button class="primary" id="copyBtn">Copy signature</button><button class="secondary" id="selectBtn">Select signature</button></div><div class="status" id="status"></div><div class="steps"><div class="step"><b>1. Copy</b><span>Click “Copy signature”.</span></div><div class="step"><b>2. Open your email</b><span>Open signature settings in Outlook, Gmail, Apple Mail or another client.</span></div><div class="step"><b>3. Paste & save</b><span>Paste the signature and save it as your default.</span></div></div></div></div><div class="footer">CareConnect · People | Support | Possibilities</div></div></div><script>
-(function(){const slug=new URLSearchParams(location.search).get('person')||Object.keys(CARECONNECT.employees)[0],p=CARECONNECT.employees[slug],b=CARECONNECT.brand;if(!p){document.getElementById('personInfo').innerHTML='<strong>Employee not found</strong>Please check your personal link.';return}const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));const origin=location.origin==='null'?'':location.origin+location.pathname.replace(/\/[^\/]*$/,'/');const img=origin+'assets/careconnect-logo.png';document.getElementById('personInfo').innerHTML='<strong>'+esc(p.name)+'</strong>'+esc(p.title);const sig=`<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#173f72;width:700px;"><tr><td style="vertical-align:top;padding:0 25px 0 0;width:330px;border-right:1px solid #dbe3ec;"><div style="font-size:22px;line-height:28px;font-weight:700;color:#143f73;">${esc(p.name)}</div><div style="font-size:13px;line-height:20px;font-weight:600;color:#f58220;">${esc(p.title)}</div><div style="font-size:12px;line-height:18px;color:#78818c;margin-top:3px;">${esc(p.company)}</div><div style="font-size:12px;line-height:18px;color:#78818c;">${esc(p.address)}</div><div style="height:13px;line-height:13px;">&nbsp;</div><div style="font-size:13px;line-height:21px;"><a href="mailto:${esc(p.email)}" style="color:#244b76;text-decoration:none;">Email: ${esc(p.email)}</a></div><div style="font-size:13px;line-height:21px;"><a href="tel:${esc(p.phone)}" style="color:#244b76;text-decoration:none;">Phone: ${esc(p.phoneDisplay)}</a></div><div style="height:12px;line-height:12px;">&nbsp;</div><div><a href="${esc(b.ccsWebsite)}" style="color:#173f72;text-decoration:none;font-weight:700;margin-right:14px;">CCS</a><a href="${esc(b.website)}" style="color:#173f72;text-decoration:none;font-weight:700;margin-right:14px;">CareConnect</a><a href="${esc(p.linkedin)}" style="color:#173f72;text-decoration:none;font-weight:700;">LinkedIn</a></div></td><td style="vertical-align:middle;padding:0 0 0 28px;"><a href="${esc(b.website)}" style="text-decoration:none;"><img src="${esc(img)}" width="190" alt="CareConnect" style="display:block;border:0;outline:none;text-decoration:none;"></a><div style="height:11px;line-height:11px;">&nbsp;</div><div style="font-size:19px;line-height:24px;font-weight:700;color:#143f73;">${esc(b.tagline1)}<br><span style="color:#12a8ba;">${esc(b.tagline2)}</span></div><div style="height:8px;line-height:8px;">&nbsp;</div><div style="font-size:11px;line-height:16px;color:#687d98;">Professional human support for organisations,<br>people and the moments that matter.</div><div style="height:10px;line-height:10px;">&nbsp;</div><a href="${esc(b.newsletter)}" style="font-size:11px;line-height:16px;color:#244b76;text-decoration:none;font-style:italic;">Subscribe to our newsletter ✉</a></td></tr></table>`;document.getElementById('preview').innerHTML=sig;document.getElementById('copyBtn').onclick=async()=>{const s=document.getElementById('status');try{await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([sig],{type:'text/html'}),'text/plain':new Blob([document.getElementById('preview').innerText],{type:'text/plain'})})]);s.textContent='✓ Signature copied — paste it into your email signature settings.'}catch(e){select();s.textContent='✓ Signature selected — press Ctrl+C / Cmd+C, then paste it.'}};function select(){const r=document.createRange();r.selectNode(document.getElementById('preview'));const s=window.getSelection();s.removeAllRanges();s.addRange(r)}document.getElementById('selectBtn').onclick=()=>{select();document.getElementById('status').textContent='Signature selected — press Ctrl+C / Cmd+C, then paste it.'}})();</script></body></html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CareConnect Email Signature</title>
+<style>
+:root{--navy:#123f73;--orange:#f58220;--teal:#12a8ba;--muted:#74849a;--line:#dbe3ec}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#f7f9fc,#fff 55%,#f4f8fb);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--navy)}
+.page{min-height:100vh;padding:42px 20px}.wrap{max-width:1050px;margin:auto}
+.top{display:flex;align-items:center;margin-bottom:28px}.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:180px;height:auto}.badge{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#7d8da1}
+.card{background:#fff;border:1px solid #e1e7ee;border-radius:22px;box-shadow:0 18px 50px rgba(18,63,115,.09);overflow:hidden}
+.hero{padding:30px 34px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:30px;align-items:flex-end}
+h1{font-size:30px;line-height:1.15;margin:0 0 7px}.sub{color:var(--muted);font-size:15px}
+.person{text-align:right;color:#52657d;font-size:15px}.person strong{display:block;color:var(--navy);font-size:19px}
+.body{padding:34px}.preview{border:1px solid var(--line);border-radius:16px;background:white;padding:28px;overflow:auto}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+button{border:0;border-radius:10px;padding:13px 20px;font-size:14px;font-weight:700;cursor:pointer}
+.primary{background:var(--navy);color:white}.secondary{background:#edf3f9;color:var(--navy)}
+.status{color:#117a58;font-size:13px;margin-top:10px;min-height:18px}
+.steps{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{background:#f7f9fc;border-radius:14px;padding:17px}.step b{display:block;margin-bottom:5px}
+.step span{font-size:13px;color:#66798f;line-height:1.45}.footer{margin-top:22px;color:#91a0b1;font-size:12px;text-align:center}
+@media(max-width:720px){.hero{display:block}.person{text-align:left;margin-top:18px}.steps{grid-template-columns:1fr}.body{padding:20px}.hero{padding:24px}}
+</style>
+<script src="employees.js"></script>
+</head>
+<body>
+<div class="page"><div class="wrap">
+<div class="top"><div class="brand">
+<img src="assets/careconnect-logo.png" alt="CareConnect">
+<span class="badge">Corporate signature portal</span>
+</div></div>
+<div class="card">
+<div class="hero"><div><h1>Your CareConnect email signature</h1>
+<div class="sub">Copy once. Paste into Outlook, Gmail, Apple Mail or your preferred email client.</div></div>
+<div class="person" id="personInfo"></div></div>
+<div class="body">
+<div class="preview" id="preview"></div>
+<div class="actions"><button class="primary" id="copyBtn">Copy signature</button><button class="secondary" id="selectBtn">Select signature</button></div>
+<div class="status" id="status"></div>
+<div class="steps">
+<div class="step"><b>1. Copy</b><span>Click “Copy signature”.</span></div>
+<div class="step"><b>2. Open your email</b><span>Open signature settings in Outlook, Gmail, Apple Mail or another client.</span></div>
+<div class="step"><b>3. Paste & save</b><span>Paste the signature and save it as your default.</span></div>
+</div>
+</div></div>
+<div class="footer">CareConnect · People | Support | Possibilities</div>
+</div></div>
+<script>
+(function(){
+const slug=new URLSearchParams(location.search).get('person')||Object.keys(CARECONNECT.employees)[0],
+p=CARECONNECT.employees[slug],b=CARECONNECT.brand;
+if(!p){document.getElementById('personInfo').innerHTML='<strong>Employee not found</strong>Please check your personal link.';return}
+const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const origin=location.origin==='null'?'':location.origin+location.pathname.replace(/\/[^\/]*$/,'/');
+const img=origin+'assets/careconnect-logo.png';
+document.getElementById('personInfo').innerHTML='<strong>'+esc(p.name)+'</strong>'+esc(p.title);
+
+const sig=`<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#173f72;width:700px;">
+<tr>
+<td style="vertical-align:top;padding:0 25px 0 0;width:330px;border-right:1px solid #dbe3ec;">
+<div style="font-size:22px;line-height:28px;font-weight:700;color:#143f73;">${esc(p.name)}</div>
+<div style="font-size:13px;line-height:20px;font-weight:600;color:#f58220;">${esc(p.title)}</div>
+<div style="font-size:12px;line-height:18px;color:#78818c;margin-top:3px;">${esc(p.company)}</div>
+<div style="font-size:12px;line-height:18px;color:#78818c;">${esc(p.address)}</div>
+<div style="height:13px;line-height:13px;">&nbsp;</div>
+<div style="font-size:13px;line-height:21px;"><a href="mailto:${esc(p.email)}" style="color:#244b76;text-decoration:none;">Email: ${esc(p.email)}</a></div>
+<div style="font-size:13px;line-height:21px;"><a href="tel:${esc(p.phone)}" style="color:#244b76;text-decoration:none;">Phone: ${esc(p.phoneDisplay)}</a></div>
+<div style="height:12px;line-height:12px;">&nbsp;</div>
+<div>
+<a href="${esc(b.ccsWebsite)}" style="color:#173f72;text-decoration:none;font-weight:700;margin-right:14px;">CCS</a>
+<a href="${esc(b.website)}" style="color:#173f72;text-decoration:none;font-weight:700;margin-right:14px;">CareConnect</a>
+<a href="${esc(p.linkedin)}" style="color:#173f72;text-decoration:none;font-weight:700;">LinkedIn</a>
+</div>
+</td>
+<td style="vertical-align:middle;padding:0 0 0 28px;">
+<a href="${esc(b.website)}" style="text-decoration:none;">
+<img src="${esc(img)}" width="190" alt="CareConnect" style="display:block;border:0;outline:none;text-decoration:none;">
+</a>
+<div style="height:11px;line-height:11px;">&nbsp;</div>
+<div style="font-size:19px;line-height:24px;font-weight:700;color:#143f73;">${esc(b.tagline1)}<br><span style="color:#12a8ba;">${esc(b.tagline2)}</span></div>
+<div style="height:8px;line-height:8px;">&nbsp;</div>
+<div style="font-size:11px;line-height:16px;color:#687d98;">Professional human support for organisations,<br>people and the moments that matter.</div>
+<div style="height:10px;line-height:10px;">&nbsp;</div>
+<a href="${esc(b.newsletter)}" style="font-size:11px;line-height:16px;color:#244b76;text-decoration:none;font-style:italic;">Subscribe to our newsletter ✉</a>
+</td></tr></table>`;
+
+document.getElementById('preview').innerHTML=sig;
+document.getElementById('copyBtn').onclick=async()=>{
+const s=document.getElementById('status');
+try{
+await navigator.clipboard.write([new ClipboardItem({
+'text/html':new Blob([sig],{type:'text/html'}),
+'text/plain':new Blob([document.getElementById('preview').innerText],{type:'text/plain'})
+})]);
+s.textContent='✓ Signature copied — paste it into your email signature settings.'
+}catch(e){select();s.textContent='✓ Signature selected — press Ctrl+C / Cmd+C, then paste it.'}
+};
+function select(){const r=document.createRange();r.selectNode(document.getElementById('preview'));const s=window.getSelection();s.removeAllRanges();s.addRange(r)}
+document.getElementById('selectBtn').onclick=()=>{select();document.getElementById('status').textContent='Signature selected — press Ctrl+C / Cmd+C, then paste it.'}
+})();
+</script>
+</body>
+</html>
