@@ -5,22 +5,23 @@ Upload these files to the root of your GitHub Pages repository:
 index.html
 assets/careconnect-logo.png
 
-This version does NOT use employees.js.
+This version is CareConnect-only and has no CCS logo or CCS website connection.
 
-Employees enter their own:
+FIXED COMPANY INFORMATION:
+CareConnect Sàrl
+2, Rue du Kiem, L-8435 Steinfort, Luxembourg
+
+Employees enter only their personal information:
 - Name
 - Job title
-- Company
-- Address
 - Email
 - Phone
+- CareConnect link
 - LinkedIn
 
-The signature layout and brand links remain fixed.
+The CareConnect logo appears below the personal information and links, rather than beside them.
 
-Fixed clickable links:
-- CCS: https://ccsint.com/
-- CareConnect: https://careconnect.world/
+The signature includes the requested confidentiality notice at the bottom.
 
 The employee data is generated only in the browser and is not saved to GitHub or any database.
 
